@@ -1,7 +1,3 @@
-/**
-Допишіть код, щоб у консолі браузера з'явилися рядки, які написані у коментарях.
-Використайте методи явного задання this
- */
 
 var country = {
   name: "Ukraine",
@@ -12,10 +8,12 @@ var country = {
     area: 847.66,
   },
 };
+
 function format(beginMsg, endMsg) {
   console.log(beginMsg + this.name + endMsg);
 }
-format.call(/* Ваш код */); // "<Ukraine>"
-format.apply(/* Ваш код */); // "[Ukraine]"
-format.call(/* Ваш код */); // ""Kyiv""
-format.apply(/* Ваш код */); // "Kyiv"
+
+format.call(country, "<", ">"); // "<Ukraine>"
+format.apply(country, ["[", "]"]); // "[Ukraine]"
+format.call(country.capital, '"', '"'); // "Kyiv"
+format.apply(country.capital, ["", ""]); // "Kyiv"
