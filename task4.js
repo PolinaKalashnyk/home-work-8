@@ -1,15 +1,19 @@
-/**
-Використовуючи функцію mul()
-і каринг створіть дві функції doubleMul() і qadraMul(),
-які множать числа на 2 і 4 відповідно.
- */
-
 
 function mul(a, b) {
   return a * b;
 }
 
-var doubleMul = // Ваш код
-var qudraMul = // Ваш код
+var doubleMul = function(a) {
+  return function(b) {
+    return mul(a, b);
+  };
+}(2);
+
+var quadraMul = function(a) {
+  return function(b) {
+    return mul(a, b);
+  };
+}(4);
+
 console.log(doubleMul(5)); // 10
-console.log(qudraMul(5)); // 20
+console.log(quadraMul(5)); // 20
